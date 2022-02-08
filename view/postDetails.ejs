@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('./components/nav.ejs') %>
+</head>
+<body>
+        <div class="card" style="padding-left: 20px; border: none;">
+            <h1><%= articles.title%></h1>
+        <p><%= articles.createdAt.toLocaleString()%></p>
+        </div>
+        <div style="display: flex; width: 100%; justify-content: center;">
+            <div class="card" style="width: 90%;">
+                <div class="card-body">
+                    <p class="card-text"><%- articles.sanitizedHtml%></p>
+                </div>
+              </div>
+        </div>
+
+        <form action="/<%= articles.id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button></form>
+</body>
+</html>
